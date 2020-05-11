@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementById</title>
+
+</head>
+<body>
+    <img src="../../image/2.png" id="aimg">
+    <h1 id="d1">真的好</h1>
+
+
+    <script>
+        var aImg = document.getElementById("aimg");
+        alert("我要换图片了");
+        aImg.src = "../../image/1.png";
+
+        var d = document.getElementById("d1");
+        d.innerHTML = "不要你觉得";
+    </script>
+</body>
+</html>

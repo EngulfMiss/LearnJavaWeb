@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定</title>
+
+</head>
+<body>
+    <img id="aimg" src="../../image/1.png" onclick="fun();">
+
+    <img id="aimg2" src="../../image/2.png">
+</body>
+
+<script>
+        function fun(){
+            alert('我被点击了');
+            alert('被点击了');
+            alert('点击了');
+        }
+
+        function fun2(){
+            alert('我被');
+            alert('点击');
+            alert('了');
+        }
+
+        //1.获取对象
+        var i = document.getElementById("aimg2");
+        //2.绑定事件
+        i.onclick = fun2;
+    </script>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window对象</title>
+
+</head>
+<body>
+<input type="button" value="打开新窗口" id="b1">
+<input type="button" value="关闭窗口" id="b2">
+</body>
+
+
+<script>
+        /*
+            Window 窗口
+                1.创建
+                2.方法
+                    1.与弹出框有关的方法
+                        alert() 显示带有一段消息和一个确认按钮的警告框
+                        confirm() 显示带有一段消息以及确认按钮和取消按钮的对话框
+                        prompt() 显示可提示用户输入的对话框
+                            * 返回值：获取用户输入的值
+
+                    2.与打开关闭有关的方法
+                        open() 打开一个新的浏览器窗口
+                            * 返回新的Window对象
+                        close() 关闭浏览器窗口
+                            * 谁调用我，我关谁
+
+                    3.与定时器有关的方法
+                        setTimeout() 在指定的毫秒数后调用函数或计算表达式(只执行一次)
+                            * 参数：
+                                1.js代码或者方法对象
+                                2.毫秒值
+
+                            * 返回值：唯一标识，用于取消
+
+
+                        clearTimeout() 取消由setTimeout()方法设定的timeout.
+                            * 参数：某个唯一标识
+
+                        setInterval() 按照指定的周期(以毫秒计) 来调用函数或计算表达式(循环重复)
+                        clearInterval() 取消由setInterval()方法设定的timeout.
+
+
+                3.属性
+                4.特点
+                    * Window对象不需要创建可以直接使用 window使用。window.方法名();
+                    * window引用可以省略。  方法名();
+
+        */
+        //alert("HEIHIEHIEH");
+        /*var flag = confirm("确定退出吗?");
+        if(flag){
+            alert("好吧，再见");
+        }else{
+            alert("我就说嘛");
+        }
+        */
+
+
+        //输入框
+        /*var result = prompt("请输入用户名");
+        alert(result);*/
+
+
+
+        //打开新窗口
+        /*var b = document.getElementById("b1");
+        var newWindow;
+        b.onclick = function(){
+            newWindow = open("https://www.baidu.com");
+        }
+        */
+
+        //关闭窗口
+        /*var b2 = document.getElementById("b2");
+        b2.onclick = function(){
+            newWindow.close();
+        }
+        */
+
+        function fun(){
+            alert('BOOM');
+        }
+
+        //setTimeout(fun,3000);
+
+        var id = setInterval(fun,3000);
+        clearInterval(id);
+
+
+    </script>
+
+
+</html>

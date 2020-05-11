@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style>
+
+        *{
+            margin:0px;
+            padding:0px;
+            box-sizing:border-box;
+        }
+        html{
+                        height:100%;
+        }
+        body{
+            height:100%;
+            background:url("../image/2.png") no-repeat center;
+            background-size:100% 100%;
+            border:2px solid blue;
+            margin:0;
+        }
+
+        .bodyv{
+            width:900px;
+            height:500px;
+            border:5px solid #EEEEEE;
+            background-color:white;
+            margin:auto;
+            margin-top:20px;
+        }
+
+        .rg_left{
+            float:left;
+            margin:15px;
+        }
+
+        .rg_left > p:first-child{
+            color:#FFD026;
+            font-size:20px;
+        }
+
+        .rg_left > p:last-child{
+            color:#A6A6A6;
+            font-size:20px;
+        }
+
+        .rg_center{
+            float:left;
+
+            width:450px;
+
+        }
+
+        .rg_right{
+            float:right;
+            margin:15px;
+        }
+
+        .rg_right > p{
+
+            font-size:15px;
+        }
+
+        .rg_right p a{
+            color:pink;
+        }
+
+        .td_left{
+            width:100px;
+            height:45px;
+            padding-left:20px;
+        }
+
+        .td_right{
+            padding-left:25px;
+        }
+
+        #username{
+            height:32px;
+            width:251px;
+            border:1px solid #A6A6A6;
+            /*设置边框圆角*/
+            border-radius:5px;
+            padding-left:5px;
+            margin-left:3px;
+            /*vertical-align:middle;*/
+        }
+
+        #last{
+            height:35px;
+        }
+
+        #bom{
+            width:100px;
+            height:35px;
+            background-color:yellow;
+            border:1px solid yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="bodyv">
+    <div class="rg_left">
+        <p>新用户注册</p>
+        <p>USER REGISTER</p>
+    </div>
+
+    <div class="rg_center">
+        <form>
+        <table border="1" cellpadding="0" cellspacing="0" width="450px">
+            <tr>
+                <td class="td_left">
+                    用户名:
+                </td>
+                <td class="td_right"><input type="text" placeholder="请输入" name="user" id="username"></td>
+            </tr>
+
+            <tr>
+                <td class="td_left">
+                    密&nbsp;&nbsp;&nbsp;码：
+                </td>
+                <td class="td_right"><input type="password" placeholder="请输入" name="user" id="username"></td>
+            </tr>
+
+            <tr>
+                <td class="td_left">
+                    邮&nbsp;&nbsp;&nbsp;箱:
+                </td>
+                <td class="td_right"><input type="email" placeholder="请输入" name="user" id="username"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" id="last">
+                    <center><input type="submit" name="input" value="提交注册信息" id="bom" style="color:red"></center>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+    <div class="rg_right">
+        <p>已有帐号，<a href="#">点击登录</a></p>
+    </div>
+</div>
+</body>
+</html>

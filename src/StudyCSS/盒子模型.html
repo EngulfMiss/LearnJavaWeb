@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型</title>
+    <style>
+        div{
+            border: 1px solid blue;
+            width:100px;
+        }
+        .div1{
+        <!-- 设置盒子的属性：设置width和height就是盒子的最终大小-->
+            box-sizing:border-box;
+            width:200px;
+            height:200px;
+            padding:50px;
+
+        }
+        .div2{
+            width:100px;
+            height:100px;
+            <!--margin:50px;-->
+        }
+
+        .diva{
+            float:left;
+        }
+
+        .divb{
+            float:left;
+        }
+
+        .divc{
+            float:right;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="div2">
+
+        </div>
+    </div>
+
+    <div class="diva">AAAA</div>
+    <div class="divb">BBBB</div>
+    <div class="divc">CCCC</div>
+</body>
+</html>
