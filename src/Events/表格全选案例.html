@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态表格</title>
+    <style>
+        table{
+            border:1px solid;
+            margin:auto;
+            width:500px;
+        }
+
+        td,th{
+            border:1px solid;
+            text-align:center;
+        }
+
+        div{
+            text-align:center;
+            margin:50px;
+        }
+
+        .out{
+            background-color: white;
+        }
+
+        .over{
+            background-color: hotpink;
+        }
+
+    </style>
+    <script>
+        /*
+            分析：
+                * 获取所有的checkbox
+                * 遍历cb，设置每个cb的状态为选中  checked
+         */
+        window.onload = function(){
+            //给全选按钮添加点击事件
+            document.getElementById("selectAll").onclick = function(){
+                //全选，获取所有的checkbox
+                var cbs = document.getElementsByName("cb");
+                //遍历
+                for (var i = 0; i < cbs.length; i++) {
+                    //设置每一个cb的状态为checked
+                    cbs[i].checked = true;
+                }
+            }
+
+            document.getElementById("Noselect").onclick = function(){
+                //全选，获取所有的checkbox
+                var cbs = document.getElementsByName("cb");
+                //遍历
+                for (var i = 0; i < cbs.length; i++) {
+                    //设置每一个cb的状态为checked
+                    cbs[i].checked = false;
+                }
+            }
+
+            document.getElementById("rselect").onclick = function(){
+                //全选，获取所有的checkbox
+                var cbs = document.getElementsByName("cb");
+                //遍历
+                for (var i = 0; i < cbs.length; i++) {
+                    //设置每一个cb的状态为checked
+                    cbs[i].checked = !(cbs[i].checked);
+                }
+            }
+
+            document.getElementById("fc").onclick = function(){
+                //全选，获取所有的checkbox
+                var cbs = document.getElementsByName("cb");
+                //遍历
+                for (var i = 0; i < cbs.length; i++) {
+                    //设置每一个cb的状态和第一个相同
+                    cbs[i].checked = this.checked;
+                }
+            }
+
+
+            //行换色
+            //给所有的tr绑定鼠标移动事件
+            var trs = document.getElementsByTagName("tr");
+            for (var i = 0; i < trs.length; i++) {
+                //移到元素上的事件
+                trs[i].onmouseover = function () {
+                    this.className = "over";
+                }
+
+                //移出元素的事件
+                trs[i].onmouseout = function () {
+                    this.className = "out";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div>
+    <input type="text" id="id" placeholder="请输入编号">
+    <input type="text" id="name" placeholder="请输入姓名">
+    <input type="text" id="sex" placeholder="请输入性别">
+    <input type="button" value="添加" id="btn">
+</div>
+
+<table cellspacing="1" cellpadding="1">
+    <caption>信息表</caption>
+    <tr>
+        <td><input type="checkbox" name="cb" id="fc"></td>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" name="cb"></td>
+        <td>1</td>
+        <td>纳尔</td>
+        <td>雄性</td>
+        <td><a href="javascript:void(0)" onclick="delTr(this)">删除</a></td>
+    </tr>
+
+    <tr>
+        <td><input type="checkbox" name="cb"></td>
+        <td>2</td>
+        <td>妮蔻</td>
+        <td>雌性</td>
+        <td><a href="javascript:void(0)" onclick="delTr(this)">删除</a></td>
+    </tr>
+</table>
+<center>
+<input type="button" value="全选" id="selectAll">
+<input type="button" value="全不选" id="Noselect">
+<input type="button" value="反选" id="rselect">
+</center>
+</body>
+<script>
+
+
+
+    document.getElementById("btn").onclick = function(){
+        //2.获取文本内容
+        var id = document.getElementById("id").value;
+        var name = document.getElementById("name").value;
+        var sex = document.getElementById("sex").value;
+
+        //获取table
+        var table = document.getElementsByTagName("table")[0];
+        table.innerHTML += "<tr>\n"+
+            "<td><input type='checkbox' name='cb'></td>" +
+            "<td>"+id+"</td>\n"+
+            "<td>"+name+"</td>\n"+
+            "<td>"+sex+"</td>\n"+
+            "<td><a href='javascript:void(0)'"+ "onclick='delTr(this)'>"+"删除</a></td>\n"+
+            "</tr>"
+    }
+
+
+    /*
+        删除：
+            1.确定点击的是哪一个超链接
+
+            2.怎么删除
+    */
+    //删除方法
+    function delTr(obj){
+        var table = obj.parentNode.parentNode.parentNode;
+        var tr = obj.parentNode.parentNode;
+        table.removeChild(tr);
+    }
+</script>
+</html>

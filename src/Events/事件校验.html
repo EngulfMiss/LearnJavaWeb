@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册表单校验</title>
+    <style>
+
+        *{
+            margin:0px;
+            padding:0px;
+            box-sizing:border-box;
+        }
+        html{
+            height:100%;
+        }
+        body{
+            height:100%;
+            /*background:url("../image/2.png") no-repeat center;*/
+            background-size:100% 100%;
+            border:2px solid blue;
+            margin:0;
+        }
+
+        .bodyv{
+            width:900px;
+            height:500px;
+            border:5px solid #EEEEEE;
+            background-color:white;
+            margin:auto;
+            margin-top:20px;
+        }
+
+        .rg_left{
+            float:left;
+            margin:15px;
+        }
+
+        .rg_left > p:first-child{
+            color:#FFD026;
+            font-size:20px;
+        }
+
+        .rg_left > p:last-child{
+            color:#A6A6A6;
+            font-size:20px;
+        }
+
+        .rg_center{
+            float:left;
+
+            width:450px;
+
+        }
+
+        .rg_right{
+            float:right;
+            margin:15px;
+        }
+
+        .rg_right > p{
+
+            font-size:15px;
+        }
+
+        .rg_right p a{
+            color:pink;
+        }
+
+        .td_left{
+            width:100px;
+            height:45px;
+            padding-left:20px;
+        }
+
+        .td_right{
+            padding-left:25px;
+        }
+
+        #username,#password,#email{
+            height:32px;
+            width:251px;
+            border:1px solid #A6A6A6;
+            /*设置边框圆角*/
+            border-radius:5px;
+            padding-left:5px;
+            margin-left:3px;
+            /*vertical-align:middle;*/
+        }
+
+        #last{
+            height:35px;
+        }
+
+        #bom{
+            width:100px;
+            height:35px;
+            background-color:yellow;
+            border:1px solid yellow;
+        }
+
+        .error{
+            color:red;
+        }
+
+
+    </style>
+
+
+    <script>
+        /*
+            分析：
+                1.给表单绑定onsubmit事件，监听器中判断每一个方法的校验结果
+                    都为true，则监听器返回true
+                    有false，则监听器返回false
+
+                2.定义一些方法分别校验各个表单项
+                3.给各个表单绑定onblur事件
+         */
+        window.onload = function(){
+
+
+
+            document.getElementById("f1").onsubmit = function () {
+                //调用用户名校验方法
+                //调用密码校验方法
+                return checkUser() && checkPSW();
+            }
+
+            //给用户名和密码分别绑定离焦事件
+            document.getElementById("username").onblur = checkUser;   //注意这里是引用了函数，所以不要打括号
+            document.getElementById("password").onblur = checkPSW;    //注意这里是引用了函数，所以不要打括号
+        }
+
+        function checkUser(){
+            //1.获取用户名的值
+            var userText = document.getElementById("username").value;
+            //2.定义正则表达式
+            var reg_user = /^w\d{6,10}$/;
+            //3.判断是否符合正则表达式
+            var flag1 = reg_user.test(userText);
+            //4.提示信息
+            var sp1 = document.getElementById("uspan");
+            if(flag1){
+                //提示一个绿色对勾
+                sp1.innerHTML = "<img width='25' height='25' src='../images/yes.png'/>";
+                return true;
+            }else{
+                //提示红色的用户名有误
+                sp1.innerHTML = "格式不正确";
+                return false;
+            }
+
+        }
+
+        function checkPSW(){
+            //1.获取用户名的值
+            var userPsw = document.getElementById("password").value;
+            //2.定义正则表达式
+            var reg_user = /^\w\d{6,10}$/;
+            //3.判断是否符合正则表达式
+            var flag2 = reg_user.test(userPsw);
+            //4.提示信息
+            var sp2 = document.getElementById("pspan");
+            if(flag2){
+                //提示一个绿色对勾
+                sp2.innerHTML = "<img width='25' height='25' src='../images/yes.png'/>";
+                return true;
+            }else{
+                //提示红色的用户名有误
+                sp2.innerHTML = "格式不正确";
+                return false;
+            }
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+<div class="bodyv">
+    <div class="rg_left">
+        <p>新用户注册</p>
+        <p>USER REGISTER</p>
+    </div>
+
+    <div class="rg_center">
+        <form action="#" method="get" id="f1" target="nm">
+            <table border="1" cellpadding="0" cellspacing="0" width="550px">
+                <tr>
+                    <td class="td_left">
+                        用户名:
+                    </td>
+                    <td class="td_right"><input type="text" placeholder="请输入" name="user" id="username">
+                    <span id="uspan" class="error"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="td_left">
+                        密&nbsp;&nbsp;&nbsp;码：
+                    </td>
+                    <td class="td_right"><input type="password" placeholder="请输入" name="user" id="password">
+                    <span id="pspan" class="error"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="td_left">
+                        邮&nbsp;&nbsp;&nbsp;箱:
+                    </td>
+                    <td class="td_right"><input type="email" placeholder="请输入" name="user" id="email"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" id="last">
+                        <center><input type="submit" name="input" value="提交注册信息" id="bom" style="color:red"></center>
+                    </td>
+                </tr>
+            </table>
+
+    </form>
+        <iframe id="nm" name="nm" style="display:none;"></iframe>
+    </div>
+    <div class="rg_right">
+        <p>已有帐号，<a href="#">点击登录</a></p>
+    </div>
+</div>
+</body>
+</html>
